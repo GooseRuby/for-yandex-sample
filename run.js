@@ -38,7 +38,7 @@ DiscordClient.on('ready', client => {
     });
 })
 
-Cron.schedule('0 0 0 * * *', () => { //АВТОПИДОР
+Cron.schedule('0 0 0 * * *', () => {
   settings.GetSubGuilds().then(array => {
     console.log(`Список серверов с подпиской:`);
     console.log(array);
@@ -53,7 +53,7 @@ Cron.schedule('0 0 0 * * *', () => { //АВТОПИДОР
           DiscordClient.channels.cache.get(item.defch).send(reject);
         });
       }, reject => {
-        DiscordClient.channels.cache.get(item.defch).send("Гений дня - " + reject);
+        DiscordClient.channels.cache.get(item.defch).send("Победитель дня - " + reject);
       });
     });
   });
